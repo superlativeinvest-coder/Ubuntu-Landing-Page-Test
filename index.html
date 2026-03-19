@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UBUNTUSPEAKS — Strategic Facilitation for Leadership Teams</title>
+  <title>UBUNTUSPEAKS, Strategic Facilitation for Leadership Teams</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital, wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -194,7 +194,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80');
+      background-image: url('Board meeting.jpg');
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
@@ -228,14 +228,23 @@
     }
     .hero-headline {
       font-family: 'Open Sans', arial, sans-serif;
-      font-size: clamp(36px, 6vw, 68px);
+      font-size: 64px;
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.01em;
       text-transform: uppercase;
       color: #ffffff;
       max-width: 700px;
       margin-bottom: 28px;
+    }
+    @media (max-width: 1024px) {
+      .hero-headline { font-size: 52px; line-height: 1.1; }
+    }
+    @media (max-width: 768px) {
+      .hero-headline { font-size: 40px; line-height: 1.15; }
+    }
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 30px; line-height: 1.2; }
     }
     .hero-headline .line-break {
       display: block;
@@ -969,6 +978,22 @@
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-links.nav-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 16px 24px 24px;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        z-index: 999;
+      }
+      .nav-links.nav-open li { border-bottom: 1px solid #f0f0f0; }
+      .nav-links.nav-open li:last-child { border-bottom: none; margin-top: 12px; }
+      .nav-links.nav-open a { display: block; padding: 12px 0; }
       .nav-hamburger { display: flex; }
       .section-who .inner { grid-template-columns: 1fr; gap: 48px; }
       .services-grid { grid-template-columns: 1fr; }
@@ -985,6 +1010,81 @@
       .section-lead .inner { grid-template-columns: 1fr; gap: 40px; }
       .outcomes-grid { grid-template-columns: 1fr; }
       .clients-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Language switcher ── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin: 0 12px;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: inherit;
+      opacity: 0.4;
+      padding: 6px 8px;
+      transition: opacity 0.2s;
+      text-transform: uppercase;
+    }
+    .lang-btn:hover { opacity: 0.75; }
+    .lang-btn.lang-active {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .lang-divider {
+      font-size: 10px;
+      opacity: 0.2;
+      user-select: none;
+      pointer-events: none;
+    }
+    .cta-short { display: none; }
+    .lang-switcher-mobile-li { display: none; border-bottom: none !important; margin-top: 0 !important; }
+    .nav-links.nav-open .lang-switcher-mobile-li { display: block; }
+    .lang-switcher-mobile {
+      display: flex;
+      gap: 8px;
+      padding: 16px 0 8px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      margin-top: 8px;
+      width: 100%;
+    }
+    .lang-btn-mobile {
+      flex: 1;
+      background: none;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 4px;
+      color: inherit;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 8px;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.2s, border-color 0.2s;
+      text-align: center;
+    }
+    .lang-btn-mobile:hover { opacity: 0.85; }
+    .lang-btn-mobile.lang-active {
+      opacity: 1;
+      border-color: currentColor;
+    }
+    @media (max-width: 768px) {
+      .cta-full { display: none; }
+      .cta-short { display: inline; }
+      .lang-btn { padding: 8px 10px; font-size: 12px; }
+    }
+    @media (max-width: 480px) {
+      .lang-switcher { gap: 0; margin: 0 6px; }
+      .lang-btn { padding: 8px 6px; font-size: 11px; }
     }
   </style>
 </head>
@@ -1004,12 +1104,26 @@
         <img src="UBUNTU Logo 2024.png" alt="UBUNTUSPEAKS" style="height:44px;width:auto;display:block;" />
       </a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#outcomes">Outcomes</a></li>
-        <li><a href="#clients">Ideal Clients</a></li>
-        <li><a href="#contact" class="nav-cta">Schedule a Consultation</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#outcomes" data-i18n="nav_outcomes">Outcomes</a></li>
+        <li><a href="#clients" data-i18n="nav_clients">Ideal Clients</a></li>
+        <li class="lang-switcher-mobile-li">
+          <div class="lang-switcher-mobile">
+            <button class="lang-btn-mobile" data-lang="en">English</button>
+            <button class="lang-btn-mobile" data-lang="fr">Français</button>
+            <button class="lang-btn-mobile" data-lang="es">Español</button>
+          </div>
+        </li>
       </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="#contact" class="nav-cta"><span class="cta-full" data-i18n="nav_cta">Schedule a Consultation</span><span class="cta-short" data-i18n="nav_cta">Book Call</span></a>
       <div class="nav-hamburger">
         <span></span>
         <span></span>
@@ -1023,17 +1137,12 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">UBUNTUSPEAKS — Strategic Facilitation</p>
-      <h1 class="hero-headline">
-        <span class="line-break">Strategic</span>
-        <span class="line-break">facilitation</span>
-        <span class="line-break">for leadership</span>
-        <span class="line-break">teams.</span>
-      </h1>
-      <p class="hero-subtext">
-        Leadership teams often struggle to navigate complex conversations without structure. Strategic facilitation helps organizations move from discussion to decisive action.
+      <p class="hero-eyebrow">UBUNTUSPEAKS, Strategic Facilitation</p>
+      <h1 class="hero-headline" data-i18n="hero_headline">From complex conversations to decisive action.</h1>
+      <p class="hero-subtext" data-i18n="hero_body">
+        Executive teams navigating critical decisions, leadership misalignment, and the conversations that have been avoided too long, strategic facilitation provides the neutral structure that moves organizations from discussion to decisive action.
       </p>
-      <a href="#contact" class="hero-btn">Schedule a Leadership Consultation</a>
+      <a href="#contact" class="hero-btn" data-i18n="hero_cta">Schedule a Leadership Consultation</a>
     </div>
   </section>
 
@@ -1043,28 +1152,28 @@
       <div class="stat-item">
         <div>
           <div class="stat-number">20+</div>
-          <div class="stat-label">Years of leadership facilitation</div>
+          <div class="stat-label" data-i18n="stat1_label">Years of leadership facilitation</div>
         </div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <div>
           <div class="stat-number">3</div>
-          <div class="stat-label">Languages — English, French &amp; Spanish</div>
+          <div class="stat-label" data-i18n="stat2_label">Languages, English, French &amp; Spanish</div>
         </div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <div>
           <div class="stat-number">Global</div>
-          <div class="stat-label">Multicultural &amp; international organizations</div>
+          <div class="stat-label" data-i18n="stat3_label">Multicultural &amp; international organizations</div>
         </div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <div>
           <div class="stat-number">5</div>
-          <div class="stat-label">Signature facilitation engagements</div>
+          <div class="stat-label" data-i18n="stat4_label">Signature facilitation engagements</div>
         </div>
       </div>
     </div>
@@ -1073,73 +1182,50 @@
   <!-- ── THE ORGANIZATIONAL PROBLEM ── -->
   <section class="section-problem">
     <div class="inner">
-      <p class="section-label" style="color:#e85d04;">The leadership challenge</p>
-      <h2 class="section-heading" style="color:#fff;max-width:700px;">Most leadership teams have the talent. What they lack is the structure to have the right conversations.</h2>
+      <p class="section-label" style="color:#e85d04;" data-i18n="problem_eyebrow">The leadership challenge</p>
+      <h2 class="section-heading" style="color:#fff;max-width:700px;" data-i18n="problem_headline">Most leadership teams have the talent. What they lack is the structure to have the right conversations.</h2>
       <div class="problem-grid">
         <div>
-          <p class="problem-intro">When difficult conversations are avoided, the cost to the organization is significant. <strong>Misaligned leadership, stalled strategy, and unresolved tension do not resolve themselves.</strong> They compound.</p>
-          <p class="problem-intro" style="margin-top:24px;">Strategic facilitation provides the structure that allows leadership teams to navigate complexity, surface what matters, and move toward clear decisions.</p>
+          <p class="problem-intro" data-i18n="problem_body1">When difficult conversations are avoided, the cost to the organization is significant. <strong>Misaligned leadership, stalled strategy, and unresolved tension do not resolve themselves.</strong> They compound.</p>
+          <p class="problem-intro" style="margin-top:24px;" data-i18n="problem_body2">Strategic facilitation provides the structure that allows leadership teams to navigate complexity, surface what matters, and move toward clear decisions.</p>
         </div>
         <ul class="problem-list">
           <li>
             <div class="problem-dot"></div>
             <div class="problem-text">
-              <strong>Leadership Misalignment</strong>
-              Executive teams pulling in different directions without a shared frame for resolution.
+              <strong data-i18n="problem1_title">Leadership Misalignment</strong>
+              <span data-i18n="problem1_desc">Executive teams pulling in different directions without a shared frame for resolution.</span>
             </div>
           </li>
           <li>
             <div class="problem-dot"></div>
             <div class="problem-text">
-              <strong>Circular Meetings Without Decisions</strong>
-              Strategy discussions that revisit the same ground without reaching actionable conclusions.
+              <strong data-i18n="problem2_title">Circular Meetings Without Decisions</strong>
+              <span data-i18n="problem2_desc">Strategy discussions that revisit the same ground without reaching actionable conclusions.</span>
             </div>
           </li>
           <li>
             <div class="problem-dot"></div>
             <div class="problem-text">
-              <strong>Avoided Difficult Conversations</strong>
-              Tensions that remain unspoken — and quietly undermine collaboration, trust, and performance.
+              <strong data-i18n="problem3_title">Avoided Difficult Conversations</strong>
+              <span data-i18n="problem3_desc">Tensions that remain unspoken, and quietly undermine collaboration, trust, and performance.</span>
             </div>
           </li>
           <li>
             <div class="problem-dot"></div>
             <div class="problem-text">
-              <strong>Communication Breakdowns Across Teams</strong>
-              Cross-functional or cross-cultural friction that limits organizational effectiveness.
+              <strong data-i18n="problem4_title">Communication Breakdowns Across Teams</strong>
+              <span data-i18n="problem4_desc">Cross-functional or cross-cultural friction that limits organizational effectiveness.</span>
             </div>
           </li>
           <li>
             <div class="problem-dot"></div>
             <div class="problem-text">
-              <strong>Ineffective Leadership Retreats</strong>
-              High-investment offsite sessions that generate energy but fail to produce lasting change.
+              <strong data-i18n="problem5_title">Ineffective Leadership Retreats</strong>
+              <span data-i18n="problem5_desc">High-investment offsite sessions that generate energy but fail to produce lasting change.</span>
             </div>
           </li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── LEAD CAPTURE ── -->
-  <section class="section-lead">
-    <div class="inner">
-      <div>
-        <p class="section-label">Executive Resource</p>
-        <h2 class="section-heading" style="font-size:clamp(24px,3vw,36px);">Is Your Leadership Team Fully Aligned?</h2>
-        <p class="section-body">Download the <strong>Executive Guide to Productive Leadership Conversations</strong> and learn how high-performing leadership teams navigate complex discussions and reach clear decisions.</p>
-        <p class="section-body" style="font-size:14px;color:#888;">Delivered directly to your inbox. No marketing sequences. Just a practical executive resource.</p>
-      </div>
-      <div class="lead-form">
-        <p class="lead-form-title">Download the Executive Guide</p>
-        <p class="lead-form-sub">The Executive Guide to Productive Leadership Conversations</p>
-        <div class="form-field">
-          <input type="text" placeholder="First Name" aria-label="First Name" />
-        </div>
-        <div class="form-field">
-          <input type="email" placeholder="Work Email Address" aria-label="Email Address" />
-        </div>
-        <button class="form-submit">Download the Guide</button>
       </div>
     </div>
   </section>
@@ -1148,16 +1234,17 @@
   <section class="section-who" id="about">
     <div class="inner">
       <div>
-        <p class="section-label">Authority &amp; Expertise</p>
-        <h2 class="section-heading">Hermence Matsotsa — Strategic Leadership Facilitator &amp; Global Organizational Advisor</h2>
-        <p class="section-body">Drawing on more than two decades of leadership development and facilitation experience, Hermence helps organizations navigate the conversations leadership teams often avoid.</p>
-        <p class="section-body">Her work spans multicultural and global organizations across sectors — bringing expertise in Cultural Intelligence, Psychological Safety, and Positive Intelligence to every engagement.</p>
-        <p class="section-body">Hermence facilitates in <strong>English, French, and Spanish</strong>, enabling her to work effectively with executive teams across diverse cultural and linguistic contexts.</p>
-        <a href="#contact" class="hero-btn" style="margin-top:24px;">Discuss Your Leadership Challenge</a>
+        <p class="section-label" data-i18n="auth_eyebrow">Authority &amp; Expertise</p>
+        <h2 class="section-heading" data-i18n="auth_headline">Hermence Matsotsa, Strategic Leadership Facilitator &amp; Global Organizational Advisor</h2>
+        <p class="section-body" data-i18n="auth_body1">Drawing on more than two decades of leadership development and facilitation experience, Hermence helps organizations navigate the conversations leadership teams often avoid, and the decisions that have been circling too long.</p>
+        <p class="section-body" data-i18n="auth_body2">Her work spans Fortune 500 companies, international NGOs, law firms, and government-adjacent organizations across four continents, bringing expertise in Cultural Intelligence, Psychological Safety, and Positive Intelligence to every engagement.</p>
+        <p class="section-body" data-i18n="auth_body3">Hermence specializes in high-stakes, emotionally charged, conflict-laden discussions where a skilled neutral facilitator transforms organizational risk into organizational progress.</p>
+        <p class="section-body" style="font-size:13px;letter-spacing:0.04em;color:#888;">Certified: Cultural Intelligence (CQ) · Positive Intelligence · Executive Facilitation</p>
+        <a href="#contact" class="hero-btn" style="margin-top:24px;" data-i18n="auth_cta">Discuss Your Leadership Challenge</a>
       </div>
       <div style="position:relative;">
         <div class="who-image">
-          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Executive leadership facilitation session" />
+          <img src="hermence.jpg" alt="Hermence Matsotsa, Strategic Leadership Facilitator" />
         </div>
         <div class="who-image-accent"></div>
       </div>
@@ -1168,8 +1255,9 @@
   <section class="section-services" id="services">
     <div class="inner">
       <div class="header">
-        <p class="section-label">Signature Facilitation Services</p>
-        <h2 class="section-heading" style="max-width:600px;margin:0 auto;">Five engagement formats. One consistent outcome: leadership clarity.</h2>
+        <p class="section-label" data-i18n="services_eyebrow">Signature Facilitation Services</p>
+        <h2 class="section-heading" style="max-width:600px;margin:0 auto;" data-i18n="services_headline">Five engagement formats. One consistent outcome: leadership clarity.</h2>
+        <p class="section-body" style="max-width:640px;margin:16px auto 0;font-size:14px;" data-i18n="services_body">Investment ranges from $1,250 to $120,000+. Every engagement includes discovery, session design, facilitation delivery, documented outcomes, and a sponsor debrief, scoped to your organization's size, challenge, and context.</p>
       </div>
       <div class="services-grid" style="grid-template-columns:repeat(2,1fr);">
         <div class="service-card">
@@ -1179,8 +1267,9 @@
               <path d="M24 14v10l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="service-title">Power Hour Executive Facilitation</h3>
-          <p class="service-desc">A focused facilitation session designed to help leadership teams work through urgent decisions or sensitive conversations that require neutral guidance and structured dialogue. Ideal for time-constrained executives facing an immediate leadership challenge.</p>
+          <h3 class="service-title" data-i18n="service1_title">Power Hour Executive Facilitation</h3>
+          <p class="service-desc" data-i18n="service1_desc">A focused facilitation session designed to help leadership teams work through urgent decisions or sensitive conversations that require neutral guidance and structured dialogue. Ideal for time-constrained executives facing an immediate leadership challenge.</p>
+          <p class="service-desc" style="font-size:13px;margin-top:8px;">From $1,250</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
@@ -1189,8 +1278,9 @@
               <path d="M16 10v8M32 10v8M8 26h32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="service-title">Half-Day Facilitation</h3>
-          <p class="service-desc">A structured leadership session addressing a specific organizational challenge — whether a team alignment issue, a communication breakdown, or a decision that has stalled. Designed to surface what matters and move the leadership team toward a clear path forward.</p>
+          <h3 class="service-title" data-i18n="service2_title">Half-Day Facilitation</h3>
+          <p class="service-desc" data-i18n="service2_desc">A structured leadership session addressing a specific organizational challenge, whether a team alignment issue, a communication breakdown, or a decision that has stalled. Designed to surface what matters and move the leadership team toward a clear path forward.</p>
+          <p class="service-desc" style="font-size:13px;margin-top:8px;">From $7,500</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
@@ -1199,8 +1289,9 @@
               <path d="M6 20h36M16 10v10M32 10v10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="service-title">Full-Day Leadership Facilitation</h3>
-          <p class="service-desc">A comprehensive facilitation engagement for leadership teams navigating strategy discussions, complex leadership dynamics, or significant organizational decisions. Provides the depth and structure needed when surface-level conversations are no longer sufficient.</p>
+          <h3 class="service-title" data-i18n="service3_title">Full-Day Leadership Facilitation</h3>
+          <p class="service-desc" data-i18n="service3_desc">A comprehensive facilitation engagement for leadership teams navigating strategy discussions, complex leadership dynamics, or significant organizational decisions. Provides the depth and structure needed when surface-level conversations are no longer sufficient.</p>
+          <p class="service-desc" style="font-size:13px;margin-top:8px;">From $9,500</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
@@ -1209,8 +1300,9 @@
               <path d="M18 36v-8h12v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="service-title">Executive Retreat Facilitation</h3>
-          <p class="service-desc">Multi-day facilitation for leadership teams seeking to align around long-term strategy, rebuild trust, strengthen collaboration, or reset the culture of how they lead together. Designed for organizations at critical inflection points requiring sustained dialogue.</p>
+          <h3 class="service-title" data-i18n="service4_title">Executive Retreat Facilitation</h3>
+          <p class="service-desc" data-i18n="service4_desc">Multi-day facilitation for leadership teams seeking to align around long-term strategy, rebuild trust, strengthen collaboration, or reset the culture of how they lead together. Designed for organizations at critical inflection points requiring sustained dialogue.</p>
+          <p class="service-desc" style="font-size:13px;margin-top:8px;">From $32,000</p>
         </div>
         <div class="service-card" style="grid-column:1/-1;max-width:600px;margin:0 auto;width:100%;">
           <div class="service-icon">
@@ -1220,8 +1312,9 @@
               <path d="M36 24l2 2 4-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="service-title">Corporate Retainer Facilitation</h3>
-          <p class="service-desc">An ongoing advisory and facilitation partnership that provides your leadership team with consistent, structured support across the year. Ideal for organizations undergoing sustained transformation or requiring recurring facilitation for leadership team meetings, strategy reviews, and critical decision sessions.</p>
+          <h3 class="service-title" data-i18n="service5_title">Corporate Retainer Facilitation</h3>
+          <p class="service-desc" data-i18n="service5_desc">An ongoing advisory and facilitation partnership that provides your leadership team with consistent, structured support across the year. Ideal for organizations undergoing sustained transformation or requiring recurring facilitation for leadership team meetings, strategy reviews, and critical decision sessions.</p>
+          <p class="service-desc" style="font-size:13px;margin-top:8px;">From $7,500 / month</p>
         </div>
       </div>
     </div>
@@ -1231,9 +1324,9 @@
   <section class="section-outcomes" id="outcomes">
     <div class="inner">
       <div style="text-align:center;">
-        <p class="section-label">Organizational Outcomes</p>
-        <h2 class="section-heading">What your leadership team walks away with</h2>
-        <p class="section-body" style="max-width:600px;margin:0 auto;">Executives engage strategic facilitation for the results it creates — not the process itself. Every engagement is designed to produce measurable change in how leadership teams operate.</p>
+        <p class="section-label" data-i18n="outcomes_eyebrow">Organizational Outcomes</p>
+        <h2 class="section-heading" data-i18n="outcomes_headline">What your leadership team walks away with</h2>
+        <p class="section-body" style="max-width:600px;margin:0 auto;" data-i18n="outcomes_body">Executives engage strategic facilitation for the results it creates, not the process itself. Every engagement is designed to produce measurable change in how leadership teams operate.</p>
       </div>
       <div class="outcomes-grid">
         <div class="outcome-item">
@@ -1243,8 +1336,8 @@
               <path d="M12 20l6 6 10-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="outcome-title">Leadership Alignment</div>
-          <p class="outcome-desc">Executive teams leave with a shared understanding of priorities, roles, and direction — reducing friction and accelerating execution.</p>
+          <div class="outcome-title" data-i18n="outcome1_title">Leadership Alignment</div>
+          <p class="outcome-desc" data-i18n="outcome1_desc">Executive teams leave with a shared understanding of priorities, roles, and direction, ending the circular discussions costing your organization weeks of lost execution time.</p>
         </div>
         <div class="outcome-item">
           <div class="outcome-icon">
@@ -1252,8 +1345,8 @@
               <path d="M8 32l8-12 6 8 6-10 8 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="outcome-title">Clearer Strategic Decisions</div>
-          <p class="outcome-desc">Conversations that previously stalled now reach clear conclusions. Leaders leave sessions with defined actions and accountabilities.</p>
+          <div class="outcome-title" data-i18n="outcome2_title">Clearer Strategic Decisions</div>
+          <p class="outcome-desc" data-i18n="outcome2_desc">Conversations that previously stalled now reach clear conclusions. Leaders leave sessions with defined actions, owners, and accountabilities, not good intentions.</p>
         </div>
         <div class="outcome-item">
           <div class="outcome-icon">
@@ -1263,8 +1356,8 @@
               <circle cx="20" cy="28" r="5" stroke="currentColor" stroke-width="2"/>
             </svg>
           </div>
-          <div class="outcome-title">Stronger Collaboration</div>
-          <p class="outcome-desc">Cross-functional and cross-cultural teams build the relational trust needed to work together effectively across organizational boundaries.</p>
+          <div class="outcome-title" data-i18n="outcome3_title">Stronger Collaboration</div>
+          <p class="outcome-desc" data-i18n="outcome3_desc">Cross-functional and cross-cultural teams build the relational trust needed to work together effectively, reducing global collaboration friction and its downstream costs.</p>
         </div>
         <div class="outcome-item">
           <div class="outcome-icon">
@@ -1273,8 +1366,8 @@
               <path d="M12 18h16M12 24h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <div class="outcome-title">More Productive Meetings</div>
-          <p class="outcome-desc">Leadership sessions become purposeful, structured, and outcome-focused — not circular discussions that revisit the same ground.</p>
+          <div class="outcome-title" data-i18n="outcome4_title">More Productive Meetings</div>
+          <p class="outcome-desc" data-i18n="outcome4_desc">Leadership sessions become purposeful, structured, and outcome-focused, not the circular discussions that revisit the same ground and leave decisions unmade.</p>
         </div>
         <div class="outcome-item">
           <div class="outcome-icon">
@@ -1283,8 +1376,8 @@
               <path d="M20 14v6l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <div class="outcome-title">Psychological Safety in Dialogue</div>
-          <p class="outcome-desc">Leaders develop the capacity to engage in honest, direct conversations without defensiveness — creating the conditions for genuine organizational learning.</p>
+          <div class="outcome-title" data-i18n="outcome5_title">Psychological Safety in Dialogue</div>
+          <p class="outcome-desc" data-i18n="outcome5_desc">Leaders develop the capacity to engage in honest, direct conversations without defensiveness, so problems surface in sessions, not in resignations.</p>
         </div>
         <div class="outcome-item">
           <div class="outcome-icon">
@@ -1293,8 +1386,8 @@
               <rect x="15" y="22" width="10" height="8" stroke="currentColor" stroke-width="2"/>
             </svg>
           </div>
-          <div class="outcome-title">Higher-Quality Leadership Dialogue</div>
-          <p class="outcome-desc">Conversations shift from surface-level discussion to substantive strategic dialogue — the kind that drives real organizational progress.</p>
+          <div class="outcome-title" data-i18n="outcome6_title">Higher-Quality Leadership Dialogue</div>
+          <p class="outcome-desc" data-i18n="outcome6_desc">Conversations shift from surface-level discussion to substantive strategic dialogue, the kind that drives organizational progress rather than organizational fatigue.</p>
         </div>
       </div>
     </div>
@@ -1304,34 +1397,34 @@
   <section class="section-clients" id="clients">
     <div class="inner">
       <div style="text-align:center;">
-        <p class="section-label">Ideal Clients</p>
-        <h2 class="section-heading">Strategic facilitation works best when the stakes are high</h2>
-        <p class="section-body" style="max-width:600px;margin:0 auto;">UBUNTUSPEAKS works with senior leaders and organizations navigating consequential decisions, complex dynamics, and the moments where unstructured conversation is no longer enough.</p>
+        <p class="section-label" data-i18n="clients_eyebrow">Ideal Clients</p>
+        <h2 class="section-heading" data-i18n="clients_headline">Strategic facilitation works best when the stakes are high</h2>
+        <p class="section-body" style="max-width:600px;margin:0 auto;" data-i18n="clients_body">UBUNTUSPEAKS works with senior leaders and organizations navigating consequential decisions, complex dynamics, and the moments where unstructured conversation is no longer enough.</p>
       </div>
       <div class="clients-grid">
         <div class="client-card">
-          <div class="client-role">Executive Leadership Teams</div>
-          <p class="client-context">Leadership teams facing alignment challenges, strategic inflection points, or the need to reset how they make decisions together.</p>
+          <div class="client-role" data-i18n="client1_role">Executive Leadership Teams</div>
+          <p class="client-context" data-i18n="client1_desc">Leadership teams facing alignment challenges, strategic inflection points, or the need to reset how they make decisions together.</p>
         </div>
         <div class="client-card">
-          <div class="client-role">CEOs &amp; Founders</div>
-          <p class="client-context">Senior leaders navigating complex organizational dynamics, difficult conversations with boards or leadership teams, or moments of critical strategic transition.</p>
+          <div class="client-role" data-i18n="client2_role">CEOs &amp; Founders</div>
+          <p class="client-context" data-i18n="client2_desc">Senior leaders navigating complex organizational dynamics, difficult conversations with boards or leadership teams, or moments of critical strategic transition.</p>
         </div>
         <div class="client-card">
-          <div class="client-role">Managing Partners at Law Firms</div>
-          <p class="client-context">Partnership groups working through succession, governance, strategic direction, or interpersonal tensions that require a skilled neutral facilitator.</p>
+          <div class="client-role" data-i18n="client3_role">Managing Partners at Law Firms</div>
+          <p class="client-context" data-i18n="client3_desc">Partnership groups working through succession, governance, strategic direction, or interpersonal tensions that require a skilled neutral facilitator.</p>
         </div>
         <div class="client-card">
-          <div class="client-role">HR &amp; Organizational Development Leaders</div>
-          <p class="client-context">People leaders seeking an experienced external facilitator for culture initiatives, leadership development programs, or organizational transformation efforts.</p>
+          <div class="client-role" data-i18n="client4_role">HR &amp; Organizational Development Leaders</div>
+          <p class="client-context" data-i18n="client4_desc">People leaders seeking an experienced external facilitator for culture initiatives, leadership development programs, or organizational transformation efforts.</p>
         </div>
         <div class="client-card">
-          <div class="client-role">Corporate Strategy Leaders</div>
-          <p class="client-context">Strategy teams requiring structured facilitation for annual planning sessions, cross-functional alignment workshops, or strategic review conversations.</p>
+          <div class="client-role" data-i18n="client5_role">Corporate Strategy Leaders</div>
+          <p class="client-context" data-i18n="client5_desc">Strategy teams requiring structured facilitation for annual planning sessions, cross-functional alignment workshops, or strategic review conversations.</p>
         </div>
         <div class="client-card">
-          <div class="client-role">Global &amp; Multicultural Organizations</div>
-          <p class="client-context">Organizations operating across cultures and languages that need facilitation grounded in Cultural Intelligence and multilingual capability.</p>
+          <div class="client-role" data-i18n="client6_role">Global &amp; Multicultural Organizations</div>
+          <p class="client-context" data-i18n="client6_desc">Organizations operating across cultures and languages that need facilitation grounded in Cultural Intelligence and multilingual capability.</p>
         </div>
       </div>
     </div>
@@ -1341,8 +1434,8 @@
   <section class="section-approach" id="approach">
     <div class="inner">
       <div style="text-align:center;">
-        <p class="section-label">How We Work</p>
-        <h2 class="section-heading">A facilitation approach built for complex leadership environments</h2>
+        <p class="section-label" data-i18n="how_eyebrow">How We Work</p>
+        <h2 class="section-heading" data-i18n="how_headline">A facilitation approach built for complex leadership environments</h2>
       </div>
       <div class="approach-grid">
         <div class="approach-image">
@@ -1353,29 +1446,29 @@
             <li>
               <div class="approach-num">01</div>
               <div>
-                <div class="approach-item-title">Understand the Leadership Context</div>
-                <div class="approach-item-desc">Every engagement begins with a discovery conversation. Before any session is designed, Hermence listens — to understand the dynamics, the history, and the real challenge beneath the presenting issue.</div>
+                <div class="approach-item-title" data-i18n="step1_title">Understand the Leadership Context</div>
+                <div class="approach-item-desc" data-i18n="step1_desc">Every engagement begins with a discovery conversation. Before any session is designed, Hermence listens, to understand the dynamics, the history, and the real challenge beneath the presenting issue.</div>
               </div>
             </li>
             <li>
               <div class="approach-num">02</div>
               <div>
-                <div class="approach-item-title">Design a Purposeful Session</div>
-                <div class="approach-item-desc">Each facilitation is designed specifically for your team, your context, and your desired outcomes. There are no off-the-shelf agendas. The session structure serves the conversation — not the other way around.</div>
+                <div class="approach-item-title" data-i18n="step2_title">Design a Purposeful Session</div>
+                <div class="approach-item-desc" data-i18n="step2_desc">Each facilitation is designed specifically for your team, your context, and your desired outcomes. There are no off-the-shelf agendas. The session structure serves the conversation, not the other way around.</div>
               </div>
             </li>
             <li>
               <div class="approach-num">03</div>
               <div>
-                <div class="approach-item-title">Facilitate with Neutral Authority</div>
-                <div class="approach-item-desc">Hermence guides conversations from a position of structured neutrality — creating psychological safety, surfacing what is unsaid, and keeping the group focused on what produces decisions and forward momentum.</div>
+                <div class="approach-item-title" data-i18n="step3_title">Facilitate with Neutral Authority</div>
+                <div class="approach-item-desc" data-i18n="step3_desc">Hermence guides conversations from a position of structured neutrality, creating psychological safety, surfacing what is unsaid, and keeping the group focused on what produces decisions and forward momentum.</div>
               </div>
             </li>
             <li>
               <div class="approach-num">04</div>
               <div>
-                <div class="approach-item-title">Close with Clarity and Commitment</div>
-                <div class="approach-item-desc">Every session ends with documented decisions, clear accountabilities, and an agreed path forward. Leaders leave with more than insight — they leave with a plan they have built together.</div>
+                <div class="approach-item-title" data-i18n="step4_title">Close with Clarity and Commitment</div>
+                <div class="approach-item-desc" data-i18n="step4_desc">Every session ends with documented decisions, clear accountabilities, and an agreed path forward. Leaders leave with more than insight, they leave with a plan they have built together.</div>
               </div>
             </li>
           </ul>
@@ -1388,37 +1481,37 @@
   <section class="section-testimonials" id="testimonials">
     <div class="inner">
       <div style="text-align:center;">
-        <p class="section-label">What Leaders Say</p>
-        <h2 class="section-heading">Organizations that chose structured facilitation over circular discussion</h2>
+        <p class="section-label" data-i18n="test_eyebrow">What Leaders Say</p>
+        <h2 class="section-heading" data-i18n="test_headline">Organizations that chose structured facilitation over circular discussion</h2>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <p class="testimonial-text">"Hermence facilitated a conversation our leadership team had been avoiding for two years. Within a single session, she helped us surface the real issue and reach a decision we had been circling for months."</p>
+          <p class="testimonial-text" data-i18n="test1_quote">"Hermence facilitated a conversation our leadership team had been avoiding for two years. Within a single session, she helped us surface the real issue and reach a decision we had been circling for months."</p>
           <div class="testimonial-author">
-            <div class="author-avatar"><img src="https://placehold.co/44x44/e85d04/ffffff" alt="Author" /></div>
+            <div class="author-avatar"><div style="width:44px;height:44px;border-radius:50%;background:#e85d04;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:white;">ED</div></div>
             <div>
-              <div class="author-name">Executive Director</div>
-              <div class="author-role">International NGO, Geneva</div>
+              <div class="author-name" data-i18n="test1_role">Executive Director</div>
+              <div class="author-role" data-i18n="test1_org">International NGO, Geneva</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-text">"The facilitation brought a level of structure and psychological safety our team had never experienced before. Our cross-functional collaboration improved measurably within weeks of the session."</p>
+          <p class="testimonial-text" data-i18n="test2_quote">"The facilitation brought a level of structure and psychological safety our team had never experienced before. Our cross-functional collaboration improved measurably within weeks of the session."</p>
           <div class="testimonial-author">
-            <div class="author-avatar"><img src="https://placehold.co/44x44/1a1a1a/ffffff" alt="Author" /></div>
+            <div class="author-avatar"><div style="width:44px;height:44px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:white;">CP</div></div>
             <div>
-              <div class="author-name">Chief People Officer</div>
-              <div class="author-role">Multinational Financial Services Firm</div>
+              <div class="author-name" data-i18n="test2_role">Chief People Officer</div>
+              <div class="author-role" data-i18n="test2_org">Multinational Financial Services Firm</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-text">"Our annual leadership retreat had always been high-energy but low-impact. Hermence redesigned the experience entirely. We left with genuine alignment and a clear strategic plan for the year ahead."</p>
+          <p class="testimonial-text" data-i18n="test3_quote">"Our annual leadership retreat had always been high-energy but low-impact. Hermence redesigned the experience entirely. We left with genuine alignment and a clear strategic plan for the year ahead."</p>
           <div class="testimonial-author">
-            <div class="author-avatar"><img src="https://placehold.co/44x44/555555/ffffff" alt="Author" /></div>
+            <div class="author-avatar"><div style="width:44px;height:44px;border-radius:50%;background:#555555;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:white;">MP</div></div>
             <div>
-              <div class="author-name">Managing Partner</div>
-              <div class="author-role">Regional Law Firm, Johannesburg</div>
+              <div class="author-name" data-i18n="test3_role">Managing Partner</div>
+              <div class="author-role" data-i18n="test3_org">Regional Law Firm, Johannesburg</div>
             </div>
           </div>
         </div>
@@ -1430,13 +1523,13 @@
   <section class="section-lead" style="background:#1a1a1a;">
     <div class="inner" style="max-width:900px;">
       <div>
-        <p class="section-label">Executive Resource</p>
-        <h2 class="section-heading" style="color:#fff;font-size:clamp(24px,3vw,36px);">Before your next leadership offsite or strategy session</h2>
-        <p class="section-body" style="color:rgba(255,255,255,0.65);">Download the <strong style="color:#fff;">Executive Guide to Productive Leadership Conversations</strong> — a practical resource for leadership teams preparing for high-stakes facilitated sessions.</p>
+        <p class="section-label" data-i18n="lead_eyebrow">Executive Resource</p>
+        <h2 class="section-heading" style="color:#fff;font-size:clamp(24px,3vw,36px);" data-i18n="lead_headline">Before your next leadership offsite or strategy session</h2>
+        <p class="section-body" style="color:rgba(255,255,255,0.65);" data-i18n="lead_body">Download the Executive Guide to Productive Leadership Conversations, a practical resource for leadership teams preparing for high-stakes facilitated sessions.</p>
       </div>
       <div class="lead-form">
-        <p class="lead-form-title">Download the Executive Guide</p>
-        <p class="lead-form-sub">Practical guidance for executive teams. No marketing sequences.</p>
+        <p class="lead-form-title" data-i18n="lead_form_title">Download the Executive Guide</p>
+        <p class="lead-form-sub" data-i18n="lead_form_sub">Practical guidance for executive teams. No marketing sequences.</p>
         <div class="form-field">
           <input type="text" placeholder="First Name" aria-label="First Name" />
         </div>
@@ -1451,12 +1544,12 @@
   <!-- ── CTA ── -->
   <section class="section-cta" id="contact">
     <div class="inner">
-      <p class="section-label" style="color:rgba(255,255,255,0.6);">Schedule a Consultation</p>
-      <h2 class="section-heading" style="color:#fff;">When leadership conversations become complex, structured facilitation creates clarity.</h2>
-      <p class="section-body" style="color:rgba(255,255,255,0.85);margin-bottom:40px;">Discuss your leadership challenge with Hermence and explore whether strategic facilitation is the right next step for your organization.</p>
+      <p class="section-label" style="color:rgba(255,255,255,0.6);" data-i18n="cta_eyebrow">Schedule a Consultation</p>
+      <h2 class="section-heading" style="color:#fff;" data-i18n="cta_headline">When leadership conversations become complex, structured facilitation creates clarity.</h2>
+      <p class="section-body" style="color:rgba(255,255,255,0.85);margin-bottom:40px;" data-i18n="cta_body">Discuss your leadership challenge with Hermence and explore whether strategic facilitation is the right next step for your organization.</p>
       <div>
-        <a href="mailto:hello@ubuntuspeaks.com" class="cta-btn-white">Schedule a Leadership Consultation</a>
-        <a href="#services" class="cta-btn-outline">Explore Services</a>
+        <a href="mailto:hermence@ubuntuworkforce.com" class="cta-btn-white" data-i18n="cta_primary">Schedule a Leadership Consultation</a>
+        <a href="#services" class="cta-btn-outline" data-i18n="cta_secondary">Explore Services</a>
       </div>
     </div>
   </section>
@@ -1469,8 +1562,8 @@
           <div class="footer-logo">
             <img src="UBUNTU Logo 2024.png" alt="UBUNTUSPEAKS" style="height:40px;width:auto;display:block;filter:brightness(0) invert(1);" />
           </div>
-          <p class="footer-about" style="margin-top:8px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Strategic Facilitation for Leadership Teams</p>
-          <p class="footer-about">Strategic facilitation and organizational advisory for executive teams navigating complex conversations, leadership misalignment, and critical decisions.</p>
+          <p class="footer-about" style="margin-top:8px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;" data-i18n="footer_sub">Strategic Facilitation for Leadership Teams</p>
+          <p class="footer-about" data-i18n="footer_tagline">Strategic facilitation and organizational advisory for executive teams navigating complex conversations, leadership misalignment, and critical decisions.</p>
         </div>
         <div>
           <p class="footer-heading">Services</p>
@@ -1494,14 +1587,14 @@
         <div>
           <p class="footer-heading">Contact</p>
           <ul class="footer-links">
-            <li><a href="mailto:hello@ubuntuspeaks.com">hello@ubuntuspeaks.com</a></li>
+            <li><a href="mailto:hermence@ubuntuworkforce.com">hermence@ubuntuworkforce.com</a></li>
             <li><a href="#">LinkedIn</a></li>
             <li><a href="#">Twitter / X</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2024 UBUNTUSPEAKS. Strategic Facilitation for Leadership Teams. All rights reserved.</p>
+        <p class="footer-copy" data-i18n="footer_copy">&copy; 2026 UBUNTUSPEAKS. Strategic Facilitation for Leadership Teams. All rights reserved.</p>
         <div class="footer-social">
           <a href="#" aria-label="LinkedIn">in</a>
           <a href="#" aria-label="Twitter">X</a>
@@ -1511,5 +1604,376 @@
     </div>
   </footer>
 
+  <script>
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('nav-open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('nav-open');
+      });
+    });
+  </script>
+  <script>
+const translations = {
+  en: {
+    nav_about: "About",
+    nav_services: "Services",
+    nav_outcomes: "Outcomes",
+    nav_clients: "Ideal Clients",
+    nav_cta: "Schedule a Consultation",
+    hero_headline: "From complex conversations to decisive action.",
+    hero_body: "Executive teams navigating critical decisions, leadership misalignment, and the conversations that have been avoided too long, strategic facilitation provides the neutral structure that moves organizations from discussion to decisive action.",
+    hero_cta: "Schedule a Leadership Consultation",
+    stat1_label: "Years of leadership facilitation",
+    stat2_label: "Languages, English, French & Spanish",
+    stat3_label: "Multicultural & international organizations",
+    stat4_label: "Signature facilitation engagements",
+    problem_eyebrow: "The Leadership Challenge",
+    problem_headline: "Most leadership teams have the talent. What they lack is the structure to have the right conversations.",
+    problem_body1: "When difficult conversations are avoided, the cost to the organization is significant. Misaligned leadership, stalled strategy, and unresolved tension do not resolve themselves. They compound.",
+    problem_body2: "Strategic facilitation provides the structure that allows leadership teams to navigate complexity, surface what matters, and move toward clear decisions.",
+    problem1_title: "Leadership Misalignment",
+    problem1_desc: "Executive teams pulling in different directions without a shared frame for resolution.",
+    problem2_title: "Circular Meetings Without Decisions",
+    problem2_desc: "Strategy discussions that revisit the same ground without reaching actionable conclusions.",
+    problem3_title: "Avoided Difficult Conversations",
+    problem3_desc: "Tensions that remain unspoken, and quietly undermine collaboration, trust, and performance.",
+    problem4_title: "Communication Breakdowns Across Teams",
+    problem4_desc: "Cross-functional or cross-cultural friction that limits organizational effectiveness.",
+    problem5_title: "Ineffective Leadership Retreats",
+    problem5_desc: "High-investment offsite sessions that generate energy but fail to produce lasting change.",
+    auth_eyebrow: "Authority & Expertise",
+    auth_headline: "Hermence Matsotsa, Strategic Leadership Facilitator & Global Organizational Advisor",
+    auth_body1: "Drawing on more than two decades of leadership development and facilitation experience, Hermence helps organizations navigate the conversations leadership teams often avoid, and the decisions that have been circling too long.",
+    auth_body2: "Her work spans Fortune 500 companies, international NGOs, law firms, and government-adjacent organizations across four continents, bringing expertise in Cultural Intelligence, Psychological Safety, and Positive Intelligence to every engagement.",
+    auth_body3: "Hermence specializes in high-stakes, emotionally charged, conflict-laden discussions where a skilled neutral facilitator transforms organizational risk into organizational progress.",
+    auth_cta: "Discuss Your Leadership Challenge",
+    services_eyebrow: "Signature Facilitation Services",
+    services_headline: "Five engagement formats. One consistent outcome: leadership clarity.",
+    service1_title: "Power Hour Executive Facilitation",
+    service1_desc: "A focused facilitation session designed to help leadership teams work through urgent decisions or sensitive conversations that require neutral guidance and structured dialogue.",
+    service2_title: "Half-Day Facilitation",
+    service2_desc: "A structured leadership session addressing a specific organizational challenge, whether a team alignment issue, a communication breakdown, or a decision that has stalled. Designed to surface what matters and move the leadership team toward a clear path forward.",
+    service3_title: "Full-Day Leadership Facilitation",
+    service3_desc: "A comprehensive facilitation engagement for leadership teams navigating strategy discussions, complex leadership dynamics, or significant organizational decisions. Provides the depth and structure needed when surface-level conversations are no longer sufficient.",
+    service4_title: "Executive Retreat Facilitation",
+    service4_desc: "Multi-day facilitation for leadership teams seeking to align around long-term strategy, rebuild trust, strengthen collaboration, or reset the culture of how they lead together. Designed for organizations at critical inflection points requiring sustained dialogue.",
+    service5_title: "Corporate Retainer Facilitation",
+    service5_desc: "An ongoing advisory and facilitation partnership that provides your leadership team with consistent, structured support across the year. Ideal for organizations undergoing sustained transformation or requiring recurring facilitation for leadership team meetings, strategy reviews, and critical decision sessions.",
+    outcomes_eyebrow: "Organizational Outcomes",
+    outcomes_headline: "What your leadership team walks away with",
+    outcome1_title: "Leadership Alignment",
+    outcome1_desc: "Executive teams leave with a shared understanding of priorities, roles, and direction, ending the circular discussions costing your organization weeks of lost execution time.",
+    outcome2_title: "Clearer Strategic Decisions",
+    outcome2_desc: "Conversations that previously stalled now reach clear conclusions. Leaders leave sessions with defined actions, owners, and accountabilities, not good intentions.",
+    outcome3_title: "Stronger Collaboration",
+    outcome3_desc: "Cross-functional and cross-cultural teams build the relational trust needed to work together effectively, reducing global collaboration friction and its downstream costs.",
+    outcome4_title: "More Productive Meetings",
+    outcome4_desc: "Leadership sessions become purposeful, structured, and outcome-focused, not the circular discussions that revisit the same ground and leave decisions unmade.",
+    outcome5_title: "Psychological Safety in Dialogue",
+    outcome5_desc: "Leaders develop the capacity to engage in honest, direct conversations without defensiveness, so problems surface in sessions, not in resignations.",
+    outcome6_title: "Higher-Quality Leadership Dialogue",
+    outcome6_desc: "Conversations shift from surface-level discussion to substantive strategic dialogue, the kind that drives organizational progress rather than organizational fatigue.",
+    how_eyebrow: "How We Work",
+    how_headline: "A facilitation approach built for complex leadership environments",
+    step1_title: "Understand the Leadership Context",
+    step1_desc: "Every engagement begins with a discovery conversation. Before any session is designed, Hermence listens, to understand the dynamics, the history, and the real challenge beneath the presenting issue.",
+    step2_title: "Design a Purposeful Session",
+    step2_desc: "Each facilitation is designed specifically for your team, your context, and your desired outcomes. There are no off-the-shelf agendas. The session structure serves the conversation, not the other way around.",
+    step3_title: "Facilitate with Neutral Authority",
+    step3_desc: "Hermence guides conversations from a position of structured neutrality, creating psychological safety, surfacing what is unsaid, and keeping the group focused on what produces decisions and forward momentum.",
+    step4_title: "Close with Clarity and Commitment",
+    step4_desc: "Every session ends with documented decisions, clear accountabilities, and an agreed path forward. Leaders leave with more than insight, they leave with a plan they have built together.",
+    test_eyebrow: "What Leaders Say",
+    test_headline: "Organizations that chose structured facilitation over circular discussion",
+    test1_quote: "Hermence facilitated a conversation our leadership team had been avoiding for two years. Within a single session, she helped us surface the real issue and reach a decision we had been circling for months.",
+    test1_role: "Executive Director",
+    test1_org: "International NGO, Geneva",
+    test2_quote: "The facilitation brought a level of structure and psychological safety our team had never experienced before. Our cross-functional collaboration improved measurably within weeks of the session.",
+    test2_role: "Chief People Officer",
+    test2_org: "Multinational Financial Services Firm",
+    test3_quote: "Our annual leadership retreat had always been high-energy but low-impact. Hermence redesigned the experience entirely. We left with genuine alignment and a clear strategic plan for the year ahead.",
+    test3_role: "Managing Partner",
+    test3_org: "Regional Law Firm, Johannesburg",
+    cta_eyebrow: "Schedule a Consultation",
+    cta_headline: "When leadership conversations become complex, structured facilitation creates clarity.",
+    cta_body: "Discuss your leadership challenge with Hermence and explore whether strategic facilitation is the right next step for your organization.",
+    cta_primary: "Schedule a Leadership Consultation",
+    cta_secondary: "Explore Services",
+    footer_tagline: "Strategic facilitation and organizational advisory for executive teams navigating complex conversations, leadership misalignment, and critical decisions.",
+    footer_sub: "Strategic Facilitation for Leadership Teams",
+    footer_copy: "© 2026 UBUNTUSPEAKS. Strategic Facilitation for Leadership Teams. All rights reserved.",
+    outcomes_body: "Executives engage strategic facilitation for the results it creates, not the process itself. Every engagement is designed to produce measurable change in how leadership teams operate.",
+    services_body: "Investment ranges from $1,250 to $120,000+. Every engagement includes discovery, session design, facilitation delivery, documented outcomes, and a sponsor debrief, scoped to your organization's size, challenge, and context.",
+    clients_eyebrow: "Ideal Clients",
+    clients_headline: "Strategic facilitation works best when the stakes are high",
+    clients_body: "UBUNTUSPEAKS works with senior leaders and organizations navigating consequential decisions, complex dynamics, and the moments where unstructured conversation is no longer enough.",
+    client1_role: "Executive Leadership Teams",
+    client1_desc: "Leadership teams facing alignment challenges, strategic inflection points, or the need to reset how they make decisions together.",
+    client2_role: "CEOs & Founders",
+    client2_desc: "Senior leaders navigating complex organizational dynamics, difficult conversations with boards or leadership teams, or moments of critical strategic transition.",
+    client3_role: "Managing Partners at Law Firms",
+    client3_desc: "Partnership groups working through succession, governance, strategic direction, or interpersonal tensions that require a skilled neutral facilitator.",
+    client4_role: "HR & Organizational Development Leaders",
+    client4_desc: "People leaders seeking an experienced external facilitator for culture initiatives, leadership development programs, or organizational transformation efforts.",
+    client5_role: "Corporate Strategy Leaders",
+    client5_desc: "Strategy teams requiring structured facilitation for annual planning sessions, cross-functional alignment workshops, or strategic review conversations.",
+    client6_role: "Global & Multicultural Organizations",
+    client6_desc: "Organizations operating across cultures and languages that need facilitation grounded in Cultural Intelligence and multilingual capability.",
+    lead_eyebrow: "Executive Resource",
+    lead_headline: "Before your next leadership offsite or strategy session",
+    lead_body: "Download the Executive Guide to Productive Leadership Conversations, a practical resource for leadership teams preparing for high-stakes facilitated sessions.",
+    lead_form_title: "Download the Executive Guide",
+    lead_form_sub: "Practical guidance for executive teams. No marketing sequences."
+  },
+  fr: {
+    nav_about: "À propos",
+    nav_services: "Services",
+    nav_outcomes: "Résultats",
+    nav_clients: "Clients idéaux",
+    nav_cta: "Planifier une consultation",
+    hero_headline: "Des conversations complexes à l'action décisive.",
+    hero_body: "Les équipes de direction peinent souvent à naviguer dans des conversations complexes sans structure. La facilitation stratégique aide les organisations à passer de la discussion à l'action décisive.",
+    hero_cta: "Planifier une consultation de leadership",
+    stat1_label: "Années de facilitation en leadership",
+    stat2_label: "Langues, Anglais, Français & Espagnol",
+    stat3_label: "Organisations multiculturelles & internationales",
+    stat4_label: "Engagements de facilitation signature",
+    problem_eyebrow: "Le défi du leadership",
+    problem_headline: "La plupart des équipes de direction ont le talent. Ce qui leur manque, c'est la structure pour avoir les bonnes conversations.",
+    problem_body1: "Lorsque les conversations difficiles sont évitées, le coût pour l'organisation est significatif. Le désalignement du leadership, la stratégie bloquée et les tensions non résolues ne se résolvent pas d'eux-mêmes. Ils s'aggravent.",
+    problem_body2: "La facilitation stratégique fournit la structure qui permet aux équipes de direction de naviguer dans la complexité, de faire ressortir ce qui compte et de prendre des décisions claires.",
+    problem1_title: "Désalignement du leadership",
+    problem1_desc: "Des équipes exécutives qui vont dans des directions différentes sans cadre commun de résolution.",
+    problem2_title: "Réunions circulaires sans décisions",
+    problem2_desc: "Des discussions stratégiques qui revisitent les mêmes sujets sans aboutir à des conclusions concrètes.",
+    problem3_title: "Conversations difficiles évitées",
+    problem3_desc: "Des tensions qui restent non exprimées, et qui minent silencieusement la collaboration, la confiance et la performance.",
+    problem4_title: "Ruptures de communication entre équipes",
+    problem4_desc: "Des frictions interfonctionnelles ou interculturelles qui limitent l'efficacité organisationnelle.",
+    problem5_title: "Retraites de leadership inefficaces",
+    problem5_desc: "Des sessions hors site à fort investissement qui génèrent de l'énergie mais ne produisent pas de changement durable.",
+    auth_eyebrow: "Autorité & Expertise",
+    auth_headline: "Hermence Matsotsa, Facilitatrice stratégique en leadership & Conseillère organisationnelle mondiale",
+    auth_body1: "Forte de plus de deux décennies d'expérience en développement du leadership et en facilitation, Hermence aide les organisations à naviguer dans les conversations que les équipes de direction évitent souvent.",
+    auth_body2: "Son travail s'étend aux organisations multiculturelles et mondiales de divers secteurs, apportant une expertise en Intelligence Culturelle, Sécurité Psychologique et Intelligence Positive à chaque engagement.",
+    auth_body3: "Hermence se spécialise dans les discussions à enjeux élevés, émotionnellement chargées et conflictuelles, où un facilitateur neutre qualifié transforme le risque organisationnel en progrès organisationnel.",
+    auth_cta: "Discuter de votre défi de leadership",
+    services_eyebrow: "Services de facilitation signature",
+    services_headline: "Cinq formats d'engagement. Un résultat constant : la clarté du leadership.",
+    service1_title: "Facilitation Power Hour",
+    service1_desc: "Une session de facilitation ciblée conçue pour aider les équipes de direction à résoudre des décisions urgentes ou des conversations sensibles nécessitant une orientation neutre et un dialogue structuré.",
+    service2_title: "Facilitation demi-journée",
+    service2_desc: "Une session de leadership structurée abordant un défi organisationnel spécifique, qu'il s'agisse d'un problème d'alignement d'équipe, d'une rupture de communication ou d'une décision bloquée.",
+    service3_title: "Facilitation journée complète",
+    service3_desc: "Un engagement de facilitation complet pour les équipes de direction naviguant dans des discussions stratégiques, des dynamiques complexes ou des décisions organisationnelles importantes.",
+    service4_title: "Facilitation de retraite exécutive",
+    service4_desc: "Facilitation sur plusieurs jours pour les équipes de direction cherchant à s'aligner sur une stratégie à long terme, à rétablir la confiance ou à réinitialiser leur culture de leadership.",
+    service5_title: "Facilitation sur contrat de rétention",
+    service5_desc: "Un partenariat consultatif et de facilitation continu qui fournit à votre équipe de direction un soutien structuré et cohérent tout au long de l'année.",
+    outcomes_eyebrow: "Résultats organisationnels",
+    outcomes_headline: "Ce que votre équipe de direction retient",
+    outcome1_title: "Alignement du leadership",
+    outcome1_desc: "Les équipes exécutives repartent avec une compréhension commune des priorités, des rôles et de la direction, mettant fin aux discussions circulaires coûteuses.",
+    outcome2_title: "Décisions stratégiques plus claires",
+    outcome2_desc: "Les conversations qui stagnaient aboutissent désormais à des conclusions claires. Les leaders repartent avec des actions définies et des responsabilités attribuées.",
+    outcome3_title: "Collaboration renforcée",
+    outcome3_desc: "Les équipes interfonctionnelles et interculturelles développent la confiance relationnelle nécessaire pour travailler ensemble efficacement.",
+    outcome4_title: "Réunions plus productives",
+    outcome4_desc: "Les sessions de leadership deviennent intentionnelles, structurées et axées sur les résultats, sans les discussions circulaires qui revisitent les mêmes sujets.",
+    outcome5_title: "Sécurité psychologique dans le dialogue",
+    outcome5_desc: "Les leaders développent la capacité d'avoir des conversations honnêtes et directes sans attitude défensive, afin que les problèmes émergent lors des sessions.",
+    outcome6_title: "Dialogue de leadership de meilleure qualité",
+    outcome6_desc: "Les conversations passent de discussions superficielles à un dialogue stratégique substantiel qui fait progresser l'organisation.",
+    how_eyebrow: "Notre approche",
+    how_headline: "Une approche de facilitation conçue pour des environnements de leadership complexes",
+    step1_title: "Comprendre le contexte de leadership",
+    step1_desc: "Chaque engagement commence par une conversation de découverte. Avant de concevoir une session, Hermence écoute pour comprendre les dynamiques, l'historique et le vrai défi.",
+    step2_title: "Concevoir une session ciblée",
+    step2_desc: "Chaque facilitation est conçue spécifiquement pour votre équipe, votre contexte et vos résultats souhaités. Pas d'ordres du jour préfabriqués.",
+    step3_title: "Faciliter avec une autorité neutre",
+    step3_desc: "Hermence guide les conversations depuis une position de neutralité structurée, créant la sécurité psychologique et maintenant le groupe concentré sur les décisions.",
+    step4_title: "Clôturer avec clarté et engagement",
+    step4_desc: "Chaque session se termine par des décisions documentées, des responsabilités claires et une voie à suivre convenue. Les leaders repartent avec un plan qu'ils ont construit ensemble.",
+    test_eyebrow: "Ce que disent les leaders",
+    test_headline: "Des organisations qui ont choisi la facilitation structurée plutôt que la discussion circulaire",
+    test1_quote: "Hermence a facilité une conversation que notre équipe de direction évitait depuis deux ans. En une seule session, elle nous a aidés à identifier le vrai problème et à prendre une décision que nous contournions depuis des mois.",
+    test1_role: "Directeur exécutif",
+    test1_org: "ONG internationale, Genève",
+    test2_quote: "La facilitation a apporté un niveau de structure et de sécurité psychologique que notre équipe n'avait jamais connu. Notre collaboration interfonctionnelle s'est améliorée de manière mesurable.",
+    test2_role: "Directrice des ressources humaines",
+    test2_org: "Société de services financiers multinationale",
+    test3_quote: "Notre retraite annuelle de leadership avait toujours été énergique mais peu impactante. Hermence a entièrement repensé l'expérience. Nous sommes repartis avec un alignement authentique.",
+    test3_role: "Associé directeur",
+    test3_org: "Cabinet d'avocats régional, Johannesburg",
+    cta_eyebrow: "Planifier une consultation",
+    cta_headline: "Lorsque les conversations de leadership deviennent complexes, la facilitation structurée crée de la clarté.",
+    cta_body: "Discutez de votre défi de leadership avec Hermence et explorez si la facilitation stratégique est la prochaine étape pour votre organisation.",
+    cta_primary: "Planifier une consultation de leadership",
+    cta_secondary: "Explorer les services",
+    footer_tagline: "Facilitation stratégique et conseil organisationnel pour les équipes exécutives naviguant dans des conversations complexes, des désalignements de leadership et des décisions critiques.",
+    footer_sub: "Facilitation stratégique pour les équipes de leadership",
+    footer_copy: "© 2026 UBUNTUSPEAKS. Facilitation stratégique pour les équipes de leadership. Tous droits réservés.",
+    outcomes_body: "Les dirigeants font appel à la facilitation stratégique pour les résultats qu'elle crée, pas pour le processus lui-même. Chaque engagement est conçu pour produire un changement mesurable dans le fonctionnement des équipes de direction.",
+    services_body: "Les investissements vont de 1 250 $ à 120 000 $+. Chaque engagement comprend la découverte, la conception de la session, la livraison de la facilitation, les résultats documentés et un débriefing du sponsor.",
+    clients_eyebrow: "Clients idéaux",
+    clients_headline: "La facilitation stratégique est la plus efficace quand les enjeux sont élevés",
+    clients_body: "UBUNTUSPEAKS travaille avec des dirigeants et des organisations qui naviguent dans des décisions importantes, des dynamiques complexes et des moments où la conversation non structurée ne suffit plus.",
+    client1_role: "Équipes de direction exécutive",
+    client1_desc: "Équipes de leadership confrontées à des défis d'alignement, des points d'inflexion stratégiques ou au besoin de réinitialiser leur façon de prendre des décisions ensemble.",
+    client2_role: "PDG & Fondateurs",
+    client2_desc: "Dirigeants naviguant dans des dynamiques organisationnelles complexes, des conversations difficiles avec les conseils d'administration ou les équipes de direction, ou des moments de transition stratégique critique.",
+    client3_role: "Associés directeurs de cabinets d'avocats",
+    client3_desc: "Groupes d'associés travaillant sur la succession, la gouvernance, la direction stratégique ou les tensions interpersonnelles nécessitant un facilitateur neutre qualifié.",
+    client4_role: "Responsables RH & Développement organisationnel",
+    client4_desc: "Dirigeants RH recherchant un facilitateur externe expérimenté pour des initiatives culturelles, des programmes de développement du leadership ou des efforts de transformation organisationnelle.",
+    client5_role: "Responsables de la stratégie d'entreprise",
+    client5_desc: "Équipes de stratégie nécessitant une facilitation structurée pour les sessions de planification annuelle, les ateliers d'alignement interfonctionnel ou les conversations de révision stratégique.",
+    client6_role: "Organisations mondiales & multiculturelles",
+    client6_desc: "Organisations opérant dans plusieurs cultures et langues qui ont besoin d'une facilitation fondée sur l'Intelligence Culturelle et une capacité multilingue.",
+    lead_eyebrow: "Ressource exécutive",
+    lead_headline: "Avant votre prochaine retraite de leadership ou session de stratégie",
+    lead_body: "Téléchargez le Guide exécutif pour des conversations de leadership productives, une ressource pratique pour les équipes de direction se préparant à des sessions facilitées à enjeux élevés.",
+    lead_form_title: "Télécharger le Guide exécutif",
+    lead_form_sub: "Conseils pratiques pour les équipes exécutives. Pas de séquences marketing."
+  },
+  es: {
+    nav_about: "Acerca de",
+    nav_services: "Servicios",
+    nav_outcomes: "Resultados",
+    nav_clients: "Clientes ideales",
+    nav_cta: "Programar una consulta",
+    hero_headline: "De conversaciones complejas a acción decisiva.",
+    hero_body: "Los equipos de liderazgo a menudo luchan por navegar conversaciones complejas sin estructura. La facilitación estratégica ayuda a las organizaciones a pasar de la discusión a la acción decisiva.",
+    hero_cta: "Programar una consulta de liderazgo",
+    stat1_label: "Años de facilitación en liderazgo",
+    stat2_label: "Idiomas, Inglés, Francés & Español",
+    stat3_label: "Organizaciones multiculturales e internacionales",
+    stat4_label: "Compromisos de facilitación exclusivos",
+    problem_eyebrow: "El desafío del liderazgo",
+    problem_headline: "La mayoría de los equipos de liderazgo tienen el talento. Lo que les falta es la estructura para tener las conversaciones correctas.",
+    problem_body1: "Cuando se evitan las conversaciones difíciles, el costo para la organización es significativo. El desalineamiento del liderazgo, la estrategia estancada y las tensiones no resueltas no se resuelven solas. Se agravan.",
+    problem_body2: "La facilitación estratégica proporciona la estructura que permite a los equipos de liderazgo navegar la complejidad, sacar a la superficie lo que importa y avanzar hacia decisiones claras.",
+    problem1_title: "Desalineamiento del liderazgo",
+    problem1_desc: "Equipos ejecutivos que van en diferentes direcciones sin un marco común de resolución.",
+    problem2_title: "Reuniones circulares sin decisiones",
+    problem2_desc: "Discusiones estratégicas que revisan el mismo terreno sin llegar a conclusiones concretas.",
+    problem3_title: "Conversaciones difíciles evitadas",
+    problem3_desc: "Tensiones que permanecen sin expresar, y que socavan silenciosamente la colaboración, la confianza y el rendimiento.",
+    problem4_title: "Rupturas de comunicación entre equipos",
+    problem4_desc: "Fricciones interfuncionales o interculturales que limitan la efectividad organizacional.",
+    problem5_title: "Retiros de liderazgo ineficaces",
+    problem5_desc: "Sesiones fuera de la oficina de alta inversión que generan energía pero no producen cambios duraderos.",
+    auth_eyebrow: "Autoridad & Experiencia",
+    auth_headline: "Hermence Matsotsa, Facilitadora estratégica de liderazgo & Asesora organizacional global",
+    auth_body1: "Con más de dos décadas de experiencia en desarrollo de liderazgo y facilitación, Hermence ayuda a las organizaciones a navegar las conversaciones que los equipos de liderazgo suelen evitar.",
+    auth_body2: "Su trabajo abarca organizaciones multiculturales y globales en diversos sectores, aportando experiencia en Inteligencia Cultural, Seguridad Psicológica e Inteligencia Positiva a cada compromiso.",
+    auth_body3: "Hermence se especializa en discusiones de alto riesgo, emocionalmente cargadas y conflictivas, donde un facilitador neutral calificado transforma el riesgo organizacional en progreso organizacional.",
+    auth_cta: "Discutir su desafío de liderazgo",
+    services_eyebrow: "Servicios de facilitación exclusivos",
+    services_headline: "Cinco formatos de compromiso. Un resultado constante: claridad de liderazgo.",
+    service1_title: "Facilitación Power Hour",
+    service1_desc: "Una sesión de facilitación enfocada diseñada para ayudar a los equipos de liderazgo a trabajar en decisiones urgentes o conversaciones sensibles que requieren orientación neutral y diálogo estructurado.",
+    service2_title: "Facilitación de medio día",
+    service2_desc: "Una sesión de liderazgo estructurada que aborda un desafío organizacional específico, ya sea un problema de alineación de equipo, una ruptura de comunicación o una decisión estancada.",
+    service3_title: "Facilitación de día completo",
+    service3_desc: "Un compromiso de facilitación integral para equipos de liderazgo que navegan discusiones estratégicas, dinámicas complejas o decisiones organizacionales significativas.",
+    service4_title: "Facilitación de retiro ejecutivo",
+    service4_desc: "Facilitación de varios días para equipos de liderazgo que buscan alinearse en torno a una estrategia a largo plazo, reconstruir la confianza o restablecer su cultura de liderazgo.",
+    service5_title: "Facilitación con contrato de retención",
+    service5_desc: "Una asociación de asesoría y facilitación continua que proporciona a su equipo de liderazgo apoyo estructurado y consistente durante todo el año.",
+    outcomes_eyebrow: "Resultados organizacionales",
+    outcomes_headline: "Lo que su equipo de liderazgo se lleva",
+    outcome1_title: "Alineación del liderazgo",
+    outcome1_desc: "Los equipos ejecutivos se van con una comprensión compartida de prioridades, roles y dirección, poniendo fin a las discusiones circulares costosas.",
+    outcome2_title: "Decisiones estratégicas más claras",
+    outcome2_desc: "Las conversaciones que antes se estancaban ahora llegan a conclusiones claras. Los líderes se van con acciones definidas y responsabilidades asignadas.",
+    outcome3_title: "Colaboración más sólida",
+    outcome3_desc: "Los equipos interfuncionales e interculturales construyen la confianza relacional necesaria para trabajar juntos de manera efectiva.",
+    outcome4_title: "Reuniones más productivas",
+    outcome4_desc: "Las sesiones de liderazgo se vuelven intencionadas, estructuradas y orientadas a resultados, sin discusiones circulares que revisen el mismo terreno.",
+    outcome5_title: "Seguridad psicológica en el diálogo",
+    outcome5_desc: "Los líderes desarrollan la capacidad de mantener conversaciones honestas y directas sin actitud defensiva, para que los problemas salgan a la superficie en las sesiones.",
+    outcome6_title: "Diálogo de liderazgo de mayor calidad",
+    outcome6_desc: "Las conversaciones pasan de discusiones superficiales a diálogos estratégicos sustanciales que impulsan el progreso organizacional.",
+    how_eyebrow: "Cómo trabajamos",
+    how_headline: "Un enfoque de facilitación diseñado para entornos de liderazgo complejos",
+    step1_title: "Comprender el contexto de liderazgo",
+    step1_desc: "Cada compromiso comienza con una conversación de descubrimiento. Antes de diseñar cualquier sesión, Hermence escucha para entender las dinámicas, la historia y el verdadero desafío.",
+    step2_title: "Diseñar una sesión con propósito",
+    step2_desc: "Cada facilitación está diseñada específicamente para su equipo, su contexto y sus resultados deseados. No hay agendas prediseñadas.",
+    step3_title: "Facilitar con autoridad neutral",
+    step3_desc: "Hermence guía las conversaciones desde una posición de neutralidad estructurada, creando seguridad psicológica y manteniendo al grupo enfocado en lo que produce decisiones.",
+    step4_title: "Cerrar con claridad y compromiso",
+    step4_desc: "Cada sesión termina con decisiones documentadas, responsabilidades claras y un camino acordado a seguir. Los líderes se van con un plan que han construido juntos.",
+    test_eyebrow: "Lo que dicen los líderes",
+    test_headline: "Organizaciones que eligieron la facilitación estructurada sobre la discusión circular",
+    test1_quote: "Hermence facilitó una conversación que nuestro equipo de liderazgo había estado evitando durante dos años. En una sola sesión, nos ayudó a identificar el problema real y tomar una decisión que habíamos estado evitando durante meses.",
+    test1_role: "Director ejecutivo",
+    test1_org: "ONG internacional, Ginebra",
+    test2_quote: "La facilitación aportó un nivel de estructura y seguridad psicológica que nuestro equipo nunca había experimentado. Nuestra colaboración interfuncional mejoró notablemente en semanas.",
+    test2_role: "Directora de personas",
+    test2_org: "Empresa multinacional de servicios financieros",
+    test3_quote: "Nuestro retiro anual de liderazgo siempre había sido enérgico pero de bajo impacto. Hermence rediseñó la experiencia por completo. Nos fuimos con una alineación genuina y un plan estratégico claro.",
+    test3_role: "Socio director",
+    test3_org: "Bufete de abogados regional, Johannesburgo",
+    cta_eyebrow: "Programar una consulta",
+    cta_headline: "Cuando las conversaciones de liderazgo se vuelven complejas, la facilitación estructurada crea claridad.",
+    cta_body: "Discuta su desafío de liderazgo con Hermence y explore si la facilitación estratégica es el siguiente paso correcto para su organización.",
+    cta_primary: "Programar una consulta de liderazgo",
+    cta_secondary: "Explorar servicios",
+    footer_tagline: "Facilitación estratégica y asesoría organizacional para equipos ejecutivos que navegan conversaciones complejas, desalineamientos de liderazgo y decisiones críticas.",
+    footer_sub: "Facilitación estratégica para equipos de liderazgo",
+    footer_copy: "© 2026 UBUNTUSPEAKS. Facilitación estratégica para equipos de liderazgo. Todos los derechos reservados.",
+    outcomes_body: "Los ejecutivos recurren a la facilitación estratégica por los resultados que crea, no por el proceso en sí. Cada compromiso está diseñado para producir un cambio medible en cómo operan los equipos de liderazgo.",
+    services_body: "La inversión oscila entre $1,250 y $120,000+. Cada compromiso incluye descubrimiento, diseño de sesión, entrega de facilitación, resultados documentados y un debriefing del patrocinador.",
+    clients_eyebrow: "Clientes ideales",
+    clients_headline: "La facilitación estratégica es más efectiva cuando las apuestas son altas",
+    clients_body: "UBUNTUSPEAKS trabaja con líderes sénior y organizaciones que navegan decisiones trascendentales, dinámicas complejas y momentos en los que la conversación no estructurada ya no es suficiente.",
+    client1_role: "Equipos de liderazgo ejecutivo",
+    client1_desc: "Equipos de liderazgo que enfrentan desafíos de alineación, puntos de inflexión estratégicos o la necesidad de restablecer cómo toman decisiones juntos.",
+    client2_role: "CEOs & Fundadores",
+    client2_desc: "Líderes sénior que navegan dinámicas organizacionales complejas, conversaciones difíciles con juntas directivas o equipos de liderazgo, o momentos de transición estratégica crítica.",
+    client3_role: "Socios directores de bufetes de abogados",
+    client3_desc: "Grupos de socios que trabajan en sucesión, gobernanza, dirección estratégica o tensiones interpersonales que requieren un facilitador neutral calificado.",
+    client4_role: "Líderes de RR.HH. & Desarrollo organizacional",
+    client4_desc: "Líderes de personas que buscan un facilitador externo experimentado para iniciativas culturales, programas de desarrollo de liderazgo o esfuerzos de transformación organizacional.",
+    client5_role: "Líderes de estrategia corporativa",
+    client5_desc: "Equipos de estrategia que requieren facilitación estructurada para sesiones de planificación anual, talleres de alineación interfuncional o conversaciones de revisión estratégica.",
+    client6_role: "Organizaciones globales & multiculturales",
+    client6_desc: "Organizaciones que operan en múltiples culturas e idiomas que necesitan facilitación fundamentada en Inteligencia Cultural y capacidad multilingüe.",
+    lead_eyebrow: "Recurso ejecutivo",
+    lead_headline: "Antes de su próximo retiro de liderazgo o sesión de estrategia",
+    lead_body: "Descargue la Guía ejecutiva para conversaciones de liderazgo productivas, un recurso práctico para equipos de liderazgo que se preparan para sesiones facilitadas de alto impacto.",
+    lead_form_title: "Descargar la Guía ejecutiva",
+    lead_form_sub: "Orientación práctica para equipos ejecutivos. Sin secuencias de marketing."
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  document.querySelectorAll('.lang-btn, .lang-btn-mobile').forEach(btn => {
+    btn.classList.toggle('lang-active', btn.getAttribute('data-lang') === lang);
+  });
+  document.documentElement.setAttribute('lang', lang);
+  localStorage.setItem('ubuntuLang', lang);
+}
+
+document.querySelectorAll('.lang-btn, .lang-btn-mobile').forEach(btn => {
+  btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+});
+
+const savedLang = localStorage.getItem('ubuntuLang') || navigator.language.slice(0, 2) || 'en';
+const defaultLang = ['en', 'fr', 'es'].includes(savedLang) ? savedLang : 'en';
+setLanguage(defaultLang);
+  </script>
 </body>
 </html>
